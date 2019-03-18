@@ -1,0 +1,15 @@
+a {
+    color: green;
+    text-decoration: none !important;
+}
+
+a:hover {
+    border-bottom: 1px solid green;
+    transition: border-bottom 0.3s;
+}
+
+li {
+    font-size: 20px;
+    margin: 20px 10px;
+    
+}

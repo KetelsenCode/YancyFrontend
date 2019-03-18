@@ -1,6 +1,7 @@
 import { BrandService } from './services/brand.service';
 import { HomeComponent } from './home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule} from '@angular/forms';
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -8,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { VehicleFormComponent } from './vehicle-form/vehicle-form.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+
 
 const routes: Routes = [
   {
@@ -26,7 +28,8 @@ const routes: Routes = [
   {
     path: 'vehicles/new',
     component: VehicleFormComponent
-  }
+  },
+  
 ];
 
 @NgModule({
@@ -39,6 +42,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [BrandService],
