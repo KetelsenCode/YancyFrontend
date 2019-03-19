@@ -1,4 +1,4 @@
-import { BrandService } from './services/brand.service';
+import { VehicleService } from './services/vehicle.service';
 import { HomeComponent } from './home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule} from '@angular/forms';
@@ -22,10 +22,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'navbar',
-    component: NavBarComponent
-  },
-  {
     path: 'vehicles/new',
     component: VehicleFormComponent
   },
@@ -45,7 +41,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [BrandService],
+  providers: [VehicleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

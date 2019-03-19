@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class BrandService {
+export class VehicleService {
 
   private HttpClient: HttpClient;
   constructor(HttpClient: HttpClient) { 
@@ -12,5 +12,10 @@ export class BrandService {
   getBrands(){
     return this.HttpClient.get("https://localhost:44381/api/brands");
    
+  }
+  getFeatures()
+  {
+    return this.HttpClient.get("https://localhost:44381/api/features");
+
   }
 }

@@ -1,7 +1,5 @@
-import { FeatureService } from './../services/feature.service';
-import { BrandService } from './../services/brand.service';
+import { VehicleService } from '../services/vehicle.service';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-vehicle-form',
@@ -15,24 +13,24 @@ export class VehicleFormComponent implements OnInit {
   vehicle: any = {
     features: []
   };
-  private BrandService: BrandService;
-  private FeatureService: FeatureService;
-  constructor(BrandService: BrandService, FeatureService: FeatureService) { 
-    this.BrandService = BrandService;
-    this.FeatureService = FeatureService;
+  
+  private VehicleService: VehicleService;
+
+  constructor(VehicleService: VehicleService) { 
+    this.VehicleService = VehicleService;
   }
 
   ngOnInit() {
 
     //Get all brands with include on models @ EF 
-    this.BrandService.getBrands().
+    this.VehicleService.getBrands().
                     subscribe(brands => {
                       this.brands = brands;
                       console.log(brands);
                      })
-
+    
     //Get all features
-    this.FeatureService.getFeatures().
+    this.VehicleService.getFeatures().
                      subscribe(features => {
                        this.features = features;
                        console.log(this.features);
@@ -63,6 +61,7 @@ export class VehicleFormComponent implements OnInit {
      
       var index = this.vehicle.features.indexOf(featureId); //gets the index of the clicked button
       this.vehicle.features.splice(index,1); //removes one from where its index is. 
+      console.log(featureId);
      ;
     }
   }
