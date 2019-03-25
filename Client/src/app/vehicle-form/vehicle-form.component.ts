@@ -39,8 +39,10 @@ export class VehicleFormComponent implements OnInit {
 
   //When a new brand gets picked from the first menu
   onBrandChange(){
+    console.log(this.vehicle.brandId)
     var selectedBrand = this.brands.find(b => b.id == this.vehicle.brandId);
-    this.models = selectedBrand.models;
+    this.models = selectedBrand.models; //gets all models of a brand, ready to list
+    delete this.vehicle.modelId; //Deletes the modelId if the Brand is changed
   }
 
   //When a new model gets picked from the model menu
